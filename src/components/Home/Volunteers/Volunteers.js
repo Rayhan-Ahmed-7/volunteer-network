@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Volunteer from '../Volunteer/Volunteer';
 
 const Volunteers = () => {
     const [volunteers,setVolunteers] = useState([]);
@@ -11,9 +12,11 @@ const Volunteers = () => {
         })
     },[])
     return (
-        <div className='w-10/12 mx-auto'>
-            <div className=''>
-
+        <div className='w-10/12 mx-auto mt-12'>
+            <div className='grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-1 md:grid-cols-2  gap-4'>
+            {
+                volunteers.map(volunteer=><Volunteer key={volunteer._id} volunteer={volunteer}></Volunteer>)
+            }
             </div>
         </div>
     );
